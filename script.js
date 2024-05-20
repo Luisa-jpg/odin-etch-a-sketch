@@ -16,4 +16,15 @@ function grid(size) {
     }
 };
 
+const btn = document.querySelector("button");
+
+btn.addEventListener("click", () => {
+    let sizeInput = prompt("Set your canvas size (up to 100): ", 16);
+    +sizeInput;
+    while (canvas.firstChild) {
+        canvas.removeChild(canvas.lastChild);
+    };
+    grid(sizeInput);
+});
+
 grid(16);
