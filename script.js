@@ -1,4 +1,6 @@
 const canvas = document.querySelector(".canvas");
+let squares;
+let mode = "hover";
 
 function grid(size) {
     if (size > 100) size = 100;
@@ -12,9 +14,23 @@ function grid(size) {
             let square = document.createElement("div");
             rows[i].appendChild(square);
             square.classList.add("square");
-        }
-    }
+        };
+    };
+
+    const squares = document.querySelectorAll(".square");
+    for (let el of squares) {
+        el.addEventListener("mouseover", () => {
+            el.classList.add("square-hover");
+        });
+        el.addEventListener("mouseout", hoverEffect);
+    };
+    return squares;
 };
+    
+function hoverEffect(e) {
+    e.target.classList.remove("square-hover");
+};
+
 
 const btn = document.querySelector("button");
 
@@ -24,7 +40,47 @@ btn.addEventListener("click", () => {
     while (canvas.firstChild) {
         canvas.removeChild(canvas.lastChild);
     };
-    grid(sizeInput);
+    squares = grid(sizeInput);
 });
 
-grid(16);
+
+const switchBtn = document.querySelector(".switch input");
+
+squares = grid(16);
+
+switchBtn.addEventListener("click", () => {
+    if (mode === "hover") {
+        for (let el of squares) {
+            el.classList.remove("square-hover");
+            el.removeEventListener("mouseout", hoverEffect);
+        };
+        mode = "rgb";
+    } else {
+        for (let el of squares) {
+            el.classList.remove("square-hover");
+            el.addEventListener("mouseout", hoverEffect);
+        };
+        mode = "hover";
+    }
+});
+
+
+
+
+
+/*
+    for (const el of squares) {
+        el.addEventListener("mouseover", () => {
+            el.classList.add("square-hover");
+        });
+        
+        if (mode == "hover") {
+            el.addEventListener("mouseout", () => {
+                el.classList.remove("square-hover");
+            });
+        } else {
+            el.removeEventListener("mouseout", () => {
+                el.classList.remove("square-hover");
+            });
+        };
+    };*/

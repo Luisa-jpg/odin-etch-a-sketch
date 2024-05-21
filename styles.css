@@ -31,6 +31,15 @@ body {
     border-radius: 10px;
     box-shadow: 25px 25px 30px rgba(18, 19, 23, 0.3);
     margin: 30px;
+    cursor: crosshair;
+}
+
+.switch-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 15px;
+    color: white;
 }
 
 .row {
@@ -48,7 +57,7 @@ body {
     transition: 1.5s;
 }
 
-.square:hover {
+.square-hover {
     background-color: var(--secondary-color);
     transition: 0.1s;
 }
@@ -74,9 +83,83 @@ button {
 button:hover {
     background-color: var(--primary-color);
     transition: 0.3s;
+    cursor: pointer;
 }
 
 button p {
     padding: 0;
     margin: 0;
 }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--secondary-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    /*background-color: var(--secondary-color);*/
+    background: linear-gradient(
+        30deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 154, 0, 1) 10%,
+        rgba(208, 222, 33, 1) 20%,
+        rgba(79, 220, 74, 1) 30%,
+        rgba(63, 218, 216, 1) 40%,
+        rgba(47, 201, 226, 1) 50%,
+        rgba(28, 127, 238, 1) 60%,
+        rgba(95, 21, 242, 1) 70%,
+        rgba(186, 12, 248, 1) 80%,
+        rgba(251, 7, 217, 1) 90%,
+        rgba(255, 0, 0, 1) 100%
+    );
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--secondary-color);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
