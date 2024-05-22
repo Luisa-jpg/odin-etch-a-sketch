@@ -11,15 +11,33 @@
 <body>
     <h1>Luisa's Etch-a-Sketch</h1>
     <div class="switch-wrapper">
-        <p>hover mode</p>
+        <p id="hover">hover mode</p>
         <label class="switch">
             <input type="checkbox">
             <span class="slider round"></span>
         </label>
-        <p>rgb mode</p>
+        <p id="sketch">sketch mode</p>
     </div>
+
+    <div class="center-wrapper">
+        <div class="check-wrapper-outer"></div>
+        <div class="canvas"></div>
+        <div class="check-wrapper-outer">
+            <div class="check-wrapper-inner">
+                <div id="checkDot"></div>
+                <p>darken</p>
+            </div>
+            <div class="check-wrapper-inner">
+                <div id="checkDot"></div>
+                <p>rgb</p>
+            </div>
+            <button><p>clear</p></button>
+        </div>
+
+    </div>
+
+    <button id="sizebtn"><p>set grid size</p></button>
+   
     
-    <div class="canvas"></div>
-    <button><p>set grid size</p></button>
 </body>
 </html>

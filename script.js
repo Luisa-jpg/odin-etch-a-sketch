@@ -2,7 +2,7 @@ const canvas = document.querySelector(".canvas");
 let squares;
 let mode = "hover";
 
-function grid(size) {
+function grid(size = 16) {
     if (size > 100) size = 100;
     const rows = [];
 
@@ -31,10 +31,13 @@ function hoverEffect(e) {
     e.target.classList.remove("square-hover");
 };
 
+function randomRGB() {
 
-const btn = document.querySelector("button");
+};
 
-btn.addEventListener("click", () => {
+const sizeBtn = document.querySelector("#sizebtn");
+
+sizeBtn.addEventListener("click", () => {
     let sizeInput = prompt("Set your canvas size (up to 100): ", 16);
     +sizeInput;
     while (canvas.firstChild) {
@@ -45,6 +48,10 @@ btn.addEventListener("click", () => {
 
 
 const switchBtn = document.querySelector(".switch input");
+const hoverP = document.querySelector("#hover");
+const sketchP = document.querySelector("#sketch");
+
+hoverP.setAttribute("style", "color: plum");
 
 squares = grid(16);
 
@@ -54,33 +61,17 @@ switchBtn.addEventListener("click", () => {
             el.classList.remove("square-hover");
             el.removeEventListener("mouseout", hoverEffect);
         };
-        mode = "rgb";
+        mode = "sketch";
+        sketchP.setAttribute("style", "color: plum");
+        hoverP.setAttribute("style", "color: white");
     } else {
         for (let el of squares) {
             el.classList.remove("square-hover");
             el.addEventListener("mouseout", hoverEffect);
         };
         mode = "hover";
+        hoverP.setAttribute("style", "color: plum");
+        sketchP.setAttribute("style", "color: white");
     }
 });
 
-
-
-
-
-/*
-    for (const el of squares) {
-        el.addEventListener("mouseover", () => {
-            el.classList.add("square-hover");
-        });
-        
-        if (mode == "hover") {
-            el.addEventListener("mouseout", () => {
-                el.classList.remove("square-hover");
-            });
-        } else {
-            el.removeEventListener("mouseout", () => {
-                el.classList.remove("square-hover");
-            });
-        };
-    };*/
