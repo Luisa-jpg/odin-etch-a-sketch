@@ -33,16 +33,19 @@ h1 {
   margin-top: 50px;
 }
 
-#checkDot {
+.checkDot {
   height: 26px;
   width: 26px;
   border: 5px solid var(--primary-color);
   border-radius:50%;
+  transition: 0.3s;
   box-shadow: rgba(18, 19, 23, 0.3) 0px 8px 18px -4px inset, rgba(0, 0, 0, 0.3) 0px 6px 10px -10px inset;
 }
 
 .active-check {
   background-color: white;
+  box-shadow: 10px 10px 15px rgba(18, 19, 23, 0.3);
+  transition: 0.3s;
 }
 
 .settings-top {
