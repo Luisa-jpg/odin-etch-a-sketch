@@ -41,9 +41,34 @@ function randomRGBA() {
     return "rgba(" + r + ", " + g + ", " + b + ", " + a + ")";
 };
 
-function setRGBA (e) {
+function setRGBA(e) {
     e.target.style.backgroundColor = randomRGBA();
 };
+/*
+function darken(e) { 
+    let color;
+    let avg;
+    for (let el of squares) {
+        if (el.hasAttribute("style")) {
+            color = el.getAttribute("style"); //e.g background-color: rgba(34, 234, 35, 0.3);
+            color.replace("background-color: rgba(", "");
+            color.replace(")", "");
+            color = color.split(", ");
+            avg = (+color[0] + +color[1] + +color[2]) / 3 // converts rgb to grayscale by taking average
+            color[0] = avg; 
+            color[1] = avg;
+            color[2] = avg;
+            color = color.toString();
+            el.style.backgroundColor = "rgba(" + color + ")";
+        };
+        if (el.classList.contains("square-hover")) {
+            el.classList.remove("square-hover");
+            el.style.backgroundColor = "rgba(165, 165, 165, 1)";
+        } else {
+            el.style.backgroundColor = "rgba(229, 229, 229, 1";
+        }
+    }
+};*/
 
 function clear() {
     for (let el of squares) {

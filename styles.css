@@ -5,7 +5,8 @@ body {
     --secondary-color: plum;
     --light-grey: #cad0ed;
 
-    background-color: var(--bg-color);
+   /*background-color: var(--bg-color);*/
+   background: linear-gradient(225deg, #313653 20%, #72255a 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -130,6 +131,15 @@ h1 {
     background-color: var(--secondary-color);
     transition: 0.1s;
 }
+
+.square-bw-light {
+  background-color: rgba(229, 229, 229, 1);
+}
+
+.square-bw-mid {
+  background-color: rgba(165, 165, 165, 1);
+}
+
 
 button {
     background-color: rgba(0, 0, 0, 0);
